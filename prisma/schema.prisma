@@ -1,0 +1,117 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url = env("POSTGRES_PRISMA_URL") 
+
+}
+
+model Category {
+  id       Int       @id @default(autoincrement())
+  title    String    @unique
+  articles Article[]
+}
+
+model Article {
+  id          Int       @id @default(autoincrement())
+  title       String
+  content     String?
+  seo_title   String?
+  seo_content String?
+  url_image   String
+  slug        String    @unique
+  categoryId  Int
+  category    Category  @relation(fields: [categoryId], references: [id])
+  date        DateTime  @default(now())
+  gameId      Int?
+  game        Games?     @relation(fields: [gameId], references: [id])
+  
+}
+
+model Developer {
+  id          Int       @id @default(autoincrement())
+  title       String
+  content     String?
+  seo_title   String?
+  seo_content String?
+  url_image   String
+  slug        String
+  games       Games[]
+}
+
+model Platform {
+  id          Int       @id @default(autoincrement())
+  title       String
+  content     String?
+  seo_title   String?
+  seo_content String?
+  url_image   String
+  games       Games[]
+}
+
+model Tag {
+  id    Int    @id @default(autoincrement())
+  title String
+  games Games[]
+}
+
+model Games {
+  id          Int       @id @default(autoincrement())
+  title       String
+  content     String?
+  seo_title   String?
+  seo_content String?
+  url_image   String
+  slug        String    @unique
+  video_url   String
+  developerId Int
+  developer   Developer @relation(fields: [developerId], references: [id])
+  platformId  Int
+  platform    Platform  @relation(fields: [platformId], references: [id])
+  tagId       Int
+  tag         Tag       @relation(fields: [tagId], references: [id])
+  articles    Article[]
+  date        DateTime  @default(now())
+  comments    Comments[]
+  
+}
+
+
+
+model Comments {
+  id           Int       @id @default(autoincrement())
+  name         String
+  content      String
+  date         DateTime  @default(now())
+  available    Boolean
+  userEmail    String
+  user         Users?   @relation(fields: [userEmail], references: [email])
+  gameSlug     String?
+  game         Games?    @relation(fields: [gameSlug], references: [slug])
+  votes        Int?
+}
+
+model Users {
+  id          Int       @id @default(autoincrement())
+  name        String
+  email       String    @unique
+  password    String
+  role        String
+  image       String
+  comments    Comments[]
+  blogs       Blogs[]
+}
+model Blogs {
+  id          Int       @id @default(autoincrement())
+  title       String
+  content     String?
+  seo_title   String?
+  seo_content String?
+  url_image   String
+  slug        String    @unique
+  userEmail   String
+  user        Users    @relation(fields: [userEmail], references: [email])
+  available   Boolean
+}

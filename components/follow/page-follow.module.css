@@ -1,0 +1,11 @@
+.follow_h5 {
+  background: linear-gradient(
+    to right,
+    var(--global-primary-color),
+    var(--global-accent-color)
+  );
+  background-clip: text;
+  color: transparent;
+  font-family: 'Orbitron';
+  font-weight: 700;
+}

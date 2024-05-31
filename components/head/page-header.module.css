@@ -1,0 +1,43 @@
+.h2_container {
+  background: linear-gradient(
+    to right,
+    var(--global-primary-color),
+    var(--global-accent-color)
+  );
+  background-clip: text;
+  color: transparent;
+}
+.nav_container {
+  box-shadow: 5px 71px 10px var(--background-main);
+}
+.stage_container {
+  background-image: url('/images/image/dual_shock.webp');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: stage_container_from_top 1s ease-out forwards;
+}
+@keyframes stage_container_from_top {
+  0% {
+    opacity: 0;
+    transform: translateY(-5rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.h2_subheader_container {
+  font-family: 'Orbitron';
+  font-weight: 400;
+}
+.ul_container li a:hover,
+.ul_container li a:active {
+  background: linear-gradient(
+    to right,
+    var(--global-primary-color),
+    var(--global-accent-color)
+  );
+  background-clip: text;
+  color: transparent;
+}

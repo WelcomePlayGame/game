@@ -1,0 +1,58 @@
+'use client';
+import { useSession } from 'next-auth/react';
+import Link from 'next/link';
+const PageHeader = () => {
+  const { data: session, status }: any = useSession();
+  return (
+    <main
+      className={`flex justify-around  border-b-[1px] text-[#fff] h-[50px] items-center`}
+    >
+      <div className={`flex justify-between`}>
+        <div className={`pr-[20px]`}>
+          <div className={`w-[20px] h-[20px]`}>
+            <svg
+              fill="#fff"
+              version="1.1"
+              id="Layer_1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlnsXlink="http://www.w3.org/1999/xlink"
+              viewBox="0 0 455 455"
+              xmlSpace="preserve"
+            >
+              <g>
+                <path
+                  style={{ fillRule: 'evenodd', clipRule: 'evenodd' }}
+                  d="M0,0v455h455V0H0z M379.493,301.961
+c-3.861,16.75-17.563,29.118-34.057,30.96c-39.044,4.353-78.575,4.382-117.952,4.353c-39.361,0.029-78.892,0-117.948-4.353
+c-16.498-1.841-30.199-14.21-34.04-30.96C70,278.114,70,252.061,70,227.499c0-24.562,0.065-50.603,5.556-74.45
+c3.841-16.766,17.547-29.118,34.024-30.959c39.06-4.365,78.608-4.382,117.969-4.365c39.357-0.016,78.892,0,117.948,4.365
+c16.498,1.841,30.199,14.193,34.057,30.959c5.495,23.847,5.446,49.888,5.446,74.45C385,252.061,384.984,278.114,379.493,301.961z"
+                />
+                <path
+                  style={{ fillRule: 'evenodd', clipRule: 'evenodd' }}
+                  d="M186.855,276.399c33.467-17.355,66.638-34.565,100.138-51.932
+c-33.597-17.53-66.764-34.821-100.138-52.237V276.399z"
+                />
+              </g>
+            </svg>
+          </div>
+          <span></span>
+          <span></span>
+        </div>
+        {status !== 'authenticated' ? (
+          <div>
+            <Link href="/auth">Sign in / Join </Link>
+          </div>
+        ) : (
+          <div>
+            <Link href="/profile">Hey {session.user.name}</Link>
+          </div>
+        )}
+      </div>
+
+      <div>Search</div>
+    </main>
+  );
+};
+
+export default PageHeader;
