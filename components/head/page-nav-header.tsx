@@ -42,6 +42,26 @@ const PageNave = () => {
               choose games
             </Link>
           </li>
+          <li>
+            <Link
+              href={'/platforms'}
+              className={`${
+                currentPath === '/platforms' ? `text-[#6ec1e4]` : ``
+              }`}
+            >
+              platforms
+            </Link>
+          </li>
+          <li>
+            <Link
+              href={'/developers'}
+              className={`${
+                currentPath === '/developers' ? `text-[#6ec1e4]` : ``
+              }`}
+            >
+              developers
+            </Link>
+          </li>
         </ul>
       </div>
     </main>

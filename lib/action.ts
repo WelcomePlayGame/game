@@ -5,7 +5,8 @@ import xss from 'xss';
 import { S3, S3ClientConfig } from '@aws-sdk/client-s3';
 import { hashPassword } from './auth';
 import { get } from 'http';
-
+import { revalidatePath } from 'next/cache';
+import { platform } from 'os';
 const s3 = new S3({
   region: 'us-east-1',
   credentials: {
@@ -95,8 +96,8 @@ export const addArticle = async (formData: FormData) => {
     const article = await client.article.create({
       data: articleData,
     });
-
-    return article;
+    revalidatePath('/', 'layout');
+    // return article;
   } catch (error) {
     throw error;
   }
@@ -109,28 +110,135 @@ export const findArticleBySlug = async (slug: string) => {
       where: {
         slug: slug,
       },
+      include: {
+        game: {
+          include: {
+            platform: true,
+            tag: true,
+          },
+        },
+      },
     });
     return article;
   } catch (error) {
     throw error;
   }
 };
+export const deleteArticleBySlug = async (slug: string, url: string) => {
+  let client;
+  try {
+    client = await getClient();
+    await client.article.delete({
+      where: {
+        slug: slug,
+      },
+    });
+    await s3.deleteObject({
+      Bucket: 'games-for-you-img',
+      Key: url,
+    });
+  } catch (error) {
+    console.error(`Error deleting article with slug ${slug}:`, error);
+    throw new Error(`Failed to delete article with slug ${slug}`);
+  } finally {
+    if (client) {
+      await client.$disconnect();
+    }
+  }
+};
+// export const findAllArticle = async () => {
+//   try {
+//     const client = await getClient();
+//     const articles = await client.article.findMany({
+//       include: {
+//         category: true,
+//       },
+//     });
 
-export const findAllArticle = async () => {
+//     return articles.map((article: any) => ({
+//       ...article,
+//       category_title: article.category?.title,
+//     }));
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+export const findAllArticle = async (page: number, pageSize: number) => {
   try {
     const client = await getClient();
     const articles = await client.article.findMany({
+      skip: (page - 1) * pageSize,
+      take: pageSize,
       include: {
         category: true,
       },
+      orderBy: {
+        date: 'desc',
+      },
     });
 
-    return articles.map((article: any) => ({
-      ...article,
-      category_title: article.category?.title,
-    }));
+    const totalArticles = await client.article.count();
+
+    return {
+      articles: articles.map((article: any) => ({
+        ...article,
+        category_title: article.category?.title,
+      })),
+      totalArticles,
+    };
   } catch (error) {
-    throw error;
+    console.error('Error fetching articles:', error);
+    return {
+      articles: [],
+      totalArticles: 0,
+    };
+  }
+};
+
+export const updateArticle = async (oldslug: string, formData: FormData) => {
+  const title = formData.get('title') as string;
+  const seo_title = formData.get('seo_title') as string;
+  const content = formData.get('content') as string;
+  const seo_content = formData.get('seo_content') as string;
+  const category_id = Number(formData.get('category_id'));
+  const game_id = Number(formData.get('game_id'));
+  const image = formData.get('image') as File;
+
+  try {
+    const extension = image.name.split('.').pop();
+    const slug = slugify(title, { lower: true }).replace(/[:.?!"+\s]+/g, '');
+    const fileName = `${slug}.${extension}`;
+    const bufferImage = await image.arrayBuffer();
+    const client = await getClient();
+    await s3.putObject({
+      Bucket: 'games-for-you-img',
+      Key: fileName,
+      Body: Buffer.from(bufferImage),
+      ContentType: image.type,
+    });
+    await client.article.update({
+      where: { slug: oldslug },
+      data: {
+        title: title,
+        seo_title: seo_title,
+        content: content,
+        seo_content: seo_content,
+        category: {
+          connect: {
+            id: category_id,
+          },
+        },
+        game: game_id
+          ? {
+              connect: {
+                id: Number(game_id),
+              },
+            }
+          : undefined,
+      },
+    });
+  } catch (error) {
+    console.error(error);
   }
 };
 
@@ -144,7 +252,7 @@ export const saveCategory = async (formData: FormData) => {
     const client = await getClient();
     const category = client.category.create({
       data: {
-        title: title,
+        title: title.trim(),
       },
     });
     return category;
@@ -158,7 +266,6 @@ export const getAllCategory = async () => {
     const categories = client.category.findMany();
     return categories;
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };
@@ -173,6 +280,20 @@ export const getAllDeveloper = async () => {
     throw error;
   }
 };
+export const findDeveloperBySlug = async (slug: string) => {
+  try {
+    const client = await getClient();
+    const developer = await client.developer.findFirst({
+      where: {
+        title: slug,
+      },
+    });
+    return developer;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const addDeveloper = async (formData: FormData) => {
   const title = formData.get('title') as string;
   const content = formData.get('content') as string;
@@ -201,7 +322,7 @@ export const addDeveloper = async (formData: FormData) => {
     });
     const developer = client.developer.create({
       data: {
-        title: title,
+        title: title.trim(),
         content: content,
         seo_title: seo_title,
         seo_content: seo_content,
@@ -224,6 +345,20 @@ export const getAllPlatform = async () => {
     throw error;
   }
 };
+export const findPlatformBySlug = async (slug: string) => {
+  try {
+    const client = await getClient();
+    const platform = await client.platform.findFirst({
+      where: {
+        title: slug,
+      },
+    });
+    return platform;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const savePlatform = async (formData: FormData) => {
   const title = formData.get('title') as string;
   const content = formData.get('content') as string;
@@ -260,6 +395,7 @@ export const savePlatform = async (formData: FormData) => {
     throw error;
   }
 };
+
 // Method for Tag
 export const getAllTag = async () => {
   try {
@@ -352,7 +488,8 @@ export const saveGame = async (formData: FormData) => {
         },
       },
     });
-    return game;
+    revalidatePath('/', 'layout');
+    // return game;
   } catch (error) {
     throw error;
   }
@@ -367,6 +504,9 @@ export const findGameBySlug = async (slug: string) => {
       },
       include: {
         articles: true,
+        developer: true,
+        platform: true,
+        tag: true,
       },
     });
     return game;

@@ -5,13 +5,16 @@ import OurStory from '@/components/body/pages-our-story';
 import Footer from '@/components/footer/page-footer';
 import NextSection from '@/components/body/page-next-section';
 import Follow from '@/components/follow/page-follow';
+import SliderArticle from '@/components/slider_for_article/page-slider-article';
+
 export default function Home() {
   return (
-    <main>
+    <main className={``}>
       <PageHeader />
       <PageNave />
       <PageStage />
       <OurStory />
+      <SliderArticle />
       <NextSection />
       <Follow />
       <Footer />

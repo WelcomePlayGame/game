@@ -12,11 +12,11 @@ const PageStage = () => {
         </h2>
       </div>
       <div className={`lg:pt-[20px]`}>
-        <span
+        <h1
           className={`${classes.h2_subheader_container} text-[1.2rem] p-[20px]  lg:text-[2.1rem] text-center `}
         >
           Unlock Your Next Adventure: Game Portal to Infinite Possibilities!
-        </span>
+        </h1>
       </div>
     </main>
   );

@@ -20,6 +20,26 @@ const nextConfig = {
     NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
     NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   },
+  async redirects() {
+    return [
+      {
+        source: '/en/article/how_to_check_steam_deck_for_originality',
+        destination: '/platforms/Steam%20Deck',
+        permanent: true,
+      },
+      {
+        source: '/en/article/warcraft_rumble_decks',
+        destination:
+          '/news/best-warcraft-rumble-builds-for-dominating-the-battlefield',
+        permanent: true,
+      },
+      {
+        source: '/ru/article/kak_uvelichit_limit_vassalov_crusader_kings_3',
+        destination: '/games/crusader-kings-3',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

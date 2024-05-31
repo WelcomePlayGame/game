@@ -1,7 +1,9 @@
+import Link from 'next/link';
+
 const Footer = () => {
   return (
-    <main
-      className={`flex flex-col  lg:flex-row lg:justify-around border-t-[1px] border-solid border-[#fff] mt-[50px] p-[50px]`}
+    <footer
+      className={`flex flex-col lg:flex-row lg:justify-around border-t-[1px] border-solid border-[#fff] mt-[50px] p-[50px]`}
     >
       <div className={``}>
         <span
@@ -13,14 +15,22 @@ const Footer = () => {
           className={`flex flex-col items-start lg:flex-row lg:justify-between uppercase text-[1.1rem] lg:space-x-3`}
         >
           <span>instargam</span>
-          <span>facebook</span>
+          <span>
+            <Link
+              href={`https://www.facebook.com/GameVadymPetrovich/`}
+              target="_blank"
+            >
+              facebook
+            </Link>
+          </span>
           <span>telegram</span>
           <span>youtube</span>
         </div>
       </div>
       <div></div>
       <div></div>
-    </main>
+    </footer>
   );
 };
+
 export default Footer;

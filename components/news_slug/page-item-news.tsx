@@ -20,7 +20,9 @@ const PageItem = ({
   return (
     <main>
       <div className={`flex flex-col items-center`}>
-        <div className={`relative w-[600px] h-[300px] object-contain`}>
+        <div
+          className={`relative w-[300px] h-[200px] lg:w-[600px] lg:h-[300px] object-contain`}
+        >
           <Image
             src={`${process.env.URL_AWS}${url_image}`}
             fill
@@ -28,8 +30,9 @@ const PageItem = ({
             className={`rounded-[5px]`}
           />
         </div>
-        <h2 className={`mt-[17px] mb-[15px]`}>{title}</h2>
-        <span>{category_title}</span>
+        <h2 className={`mt-[17px] mb-[15px]`}>
+          {title.length < 30 ? title : `${title.slice(0, 30)} ...`}
+        </h2>
         <span
           className={`mt-[20px] mb-[20px] bg-[#6ec1e4] w-[150px] h-[30px] rounded flex flex-col items-center`}
         >

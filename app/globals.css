@@ -33,3 +33,9 @@ body {
 .ql-align-center {
   text-align: center;
 }
+.video-embed {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

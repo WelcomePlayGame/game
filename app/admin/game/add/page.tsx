@@ -166,7 +166,7 @@ const Add = () => {
             type="submit"
             className="text-center bg-red-500 w-[100px] mt-[30px] text-white"
           >
-            Send
+            Save
           </button>
         </div>
       </form>

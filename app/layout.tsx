@@ -5,6 +5,9 @@ import './globals.css';
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-quill/dist/quill.snow.css';
 import SessionWrapper from '@/components/session_wrapper/SessionWrapper';
+import GoogleAdsense from '@/components/GoogleAdsense/GoogleAdsense';
+import GooglePublisher from '@/components/GoogleAdsense/GooglePublisher';
+import GoogleAnalytics from '@/components/GoogleAdsense/GoogleAnalytics';
 const rubik = Rubik({
   weight: ['400', '700'],
   style: ['normal', 'italic'],
@@ -39,6 +42,9 @@ export default function RootLayout({
           ></meta>
         </head>
         <body className={orbitron.className}>{children}</body>
+        <GoogleAdsense pId="8462086079240804" />
+        <GooglePublisher />
+        <GoogleAnalytics trackingId="G-5G4LKF8230" />
       </html>
     </SessionWrapper>
   );
