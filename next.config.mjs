@@ -38,6 +38,11 @@ const nextConfig = {
         destination: '/games/crusader-kings-3',
         permanent: true,
       },
+      {
+        source: '/pl/article/jak_uzyskac_120_fps_w_standoff_2_na_telefonie',
+        destination: '/games/standoff-2',
+        permanent: true,
+      },
     ];
   },
 };

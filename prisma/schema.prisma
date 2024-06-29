@@ -115,3 +115,8 @@ model Blogs {
   user        Users    @relation(fields: [userEmail], references: [email])
   available   Boolean
 }
+model Video {
+  id     Int    @id @default(autoincrement())
+  title  String @unique
+  url    String
+}

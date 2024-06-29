@@ -586,3 +586,28 @@ export const getAllComment = async () => {
     throw error;
   }
 };
+
+//Method for Video Stream
+export const addVideo = async (title: string, url: string) => {
+  try {
+    const client = await getClient();
+    await client.video.create({
+      data: {
+        title,
+        url,
+      },
+    });
+    return { message: 'Added video' };
+  } catch (error) {
+    throw error;
+  }
+};
+export const getVideos = async () => {
+  try {
+    const client = await getClient();
+    const videos = await client.video.findMany();
+    return videos;
+  } catch (error) {
+    throw error;
+  }
+};
