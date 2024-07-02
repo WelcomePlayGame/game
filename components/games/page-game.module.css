@@ -1,3 +1,7 @@
+.content_img {
+  text-decoration-color: aqua;
+  text-decoration-thickness: 2px;
+}
 .content_img img {
   width: 50%;
   margin: auto;
