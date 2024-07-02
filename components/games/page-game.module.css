@@ -1,5 +1,9 @@
 .content_img {
-  text-decoration-color: aqua;
+  text-decoration-color: linear-gradient(
+    to right,
+    var(--global-primary-color),
+    var(--global-accent-color)
+  );
   text-decoration-thickness: 2px;
 }
 .content_img img {
