@@ -1,11 +1,15 @@
 .content_img u {
-  text-decoration-color: linear-gradient(
+  background: linear-gradient(
     to right,
     var(--global-primary-color),
     var(--global-accent-color)
   );
+  -webkit-background-clip: text;
+  color: transparent;
+  text-decoration: underline;
   text-decoration-thickness: 2px;
 }
+
 .content_img img {
   width: 50%;
   margin: auto;
