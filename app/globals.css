@@ -39,3 +39,11 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+u {
+  text-decoration-color: linear-gradient(
+    to right,
+    var(--global-primary-color),
+    var(--global-accent-color)
+  );
+  text-decoration-thickness: 2px;
+}
