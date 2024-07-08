@@ -19,6 +19,7 @@ import {
 } from '@chakra-ui/react';
 import PageGrid from '@/components/news_slug/page-grid-news';
 import Link from 'next/link';
+import SliderNewsForGame from '@/components/slider_news_for_game/page-game-slider';
 export const generateMetadata = async ({ params }: any) => {
   const game = await get(params.slug);
   return {
@@ -96,7 +97,7 @@ const Game = async ({ params }: { params: { slug: string } }) => {
                   />
                 </TabPanel>
                 <TabPanel className={`min-h-[500px]`}>
-                  <PageGrid articles={game.articles} />
+                  <SliderNewsForGame news={game.articles} />
                 </TabPanel>
                 <TabPanel>
                   <AspectRatio ratio={16 / 9}>
