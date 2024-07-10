@@ -14,7 +14,11 @@ const Footer = () => {
         <div
           className={`flex flex-col items-start lg:flex-row lg:justify-between uppercase text-[1.1rem] lg:space-x-3`}
         >
-          <span>instargam</span>
+          <span>
+            <Link href="https://www.instagram.com/optimisticpetrovich/">
+              instargam
+            </Link>
+          </span>
           <span>
             <Link
               href={`https://www.facebook.com/GameVadymPetrovich/`}
@@ -24,7 +28,11 @@ const Footer = () => {
             </Link>
           </span>
           <span>telegram</span>
-          <span>youtube</span>
+          <span>
+            <Link href="https://www.reddit.com/user/GameForYouOnlineInfo/">
+              reddit
+            </Link>
+          </span>
         </div>
       </div>
       <div></div>
