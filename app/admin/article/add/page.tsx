@@ -38,6 +38,8 @@ const Add: React.FC = () => {
       ['code-block'],
       ['clean'],
       ['table'],
+      ['anchor'],
+      ['horizontal-rule'],
     ],
   };
 
@@ -56,6 +58,8 @@ const Add: React.FC = () => {
     'align',
     'color',
     'code-block',
+    'anchor',
+    'horizontal-rule',
   ];
 
   const handleEditorChange = (newContent: string) => {

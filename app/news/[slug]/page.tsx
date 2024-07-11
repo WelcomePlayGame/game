@@ -7,7 +7,7 @@ import classes from '@/components/games/page-game.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
 import SliderArticle from '@/components/slider_for_article/page-slider-article';
-
+import SvgTag from '@/components/svg_tag_img/page-svg-tag-img';
 export const generateMetadata = async ({ params }: any) => {
   const article = await findArticleBySlug(params.slug);
   return {
@@ -97,6 +97,12 @@ const Article = async ({ params }: { params: { slug: string } }) => {
           <h1 className={` font-bold text-center mt-[30px]`}>
             {article?.title}
           </h1>
+          <div className="flex justify-center space-x-4 mt-[20px] bg-[orange] p-[5px] w-[23%] rounded">
+            <div className={`w-[32px] h-[32px] fill-white`}>
+              <SvgTag />
+            </div>
+            <span>{article?.category.title}</span>
+          </div>
         </div>
         <div
           className={`font-normal  pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[250px] lg:pr-[250px] break-words`}

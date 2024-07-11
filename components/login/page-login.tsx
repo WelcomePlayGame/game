@@ -18,6 +18,12 @@ const createUser = async (name: string, email: string, password: string) => {
 
   return res.json();
 };
+export const generateMetadata = async ({ params }: any) => {
+  return {
+    title: 'Login page',
+    description: 'Please login this page',
+  };
+};
 
 const LoginForm = () => {
   const [isLoading, setLoading] = useState(false);
@@ -62,7 +68,7 @@ const LoginForm = () => {
 
   return (
     <main className={`flex flex-col items-center mt-[150px]`}>
-      <h3 className={`mb-[15px]`}>{!isLoading ? 'Login' : 'Sign Up'}</h3>
+      <h1 className={`mb-[15px]`}>{!isLoading ? 'Login' : 'Sign Up'}</h1>
       <form
         onSubmit={submitHandler}
         className={`flex flex-col w-[350px] items-center bg-[#000] bg-opacity-65 lg:w-[600px] p-[20px] rounded-[7px]`}

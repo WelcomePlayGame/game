@@ -127,6 +127,7 @@ export const findArticleBySlug = async (slug: string) => {
         slug: slug,
       },
       include: {
+        category: true,
         game: {
           include: {
             platform: true,
