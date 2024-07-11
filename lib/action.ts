@@ -6,7 +6,23 @@ import { S3, S3ClientConfig } from '@aws-sdk/client-s3';
 import { hashPassword } from './auth';
 import { get } from 'http';
 import { revalidatePath } from 'next/cache';
-import { platform } from 'os';
+import { sendPing } from './server_ping';
+const PING_SERVERS = [
+  {
+    url: 'http://pingomatic.com/ping/',
+    method: 'POST',
+    params: {
+      title: 'MySite',
+      blogurl: 'https://example.com',
+      rssurl: 'https://example.com/rss',
+    },
+  },
+  {
+    url: 'http://rpc.pingomatic.com/',
+    method: 'GET',
+  },
+  // Добавьте другие ping-серверы по необходимости
+];
 const s3 = new S3({
   region: 'us-east-1',
   credentials: {
@@ -96,6 +112,7 @@ export const addArticle = async (formData: FormData) => {
     const article = await client.article.create({
       data: articleData,
     });
+    await sendPing(PING_SERVERS);
     revalidatePath('/', 'layout');
     // return article;
   } catch (error) {
