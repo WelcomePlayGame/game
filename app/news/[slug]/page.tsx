@@ -97,7 +97,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
           <h1 className={` font-bold text-center mt-[30px]`}>
             {article?.title}
           </h1>
-          <div className="flex justify-center space-x-4 mt-[20px] bg-[orange] p-[5px] w-[] lg:w-[30%] rounded">
+          <div className="flex justify-center space-x-4 mt-[20px] bg-[orange] p-[5px] w-[] lg:w-[30%] rounded items-center">
             <div className={`w-[32px] h-[32px] fill-white`}>
               <SvgTag />
             </div>
