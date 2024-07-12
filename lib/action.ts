@@ -163,23 +163,7 @@ export const deleteArticleBySlug = async (slug: string, url: string) => {
     }
   }
 };
-// export const findAllArticle = async () => {
-//   try {
-//     const client = await getClient();
-//     const articles = await client.article.findMany({
-//       include: {
-//         category: true,
-//       },
-//     });
 
-//     return articles.map((article: any) => ({
-//       ...article,
-//       category_title: article.category?.title,
-//     }));
-//   } catch (error) {
-//     throw error;
-//   }
-// };
 export const findAllArticle = async (page: number, pageSize: number) => {
   try {
     const client = await getClient();
@@ -347,6 +331,22 @@ export const addDeveloper = async (formData: FormData) => {
         url_image: fileName,
       },
     });
+    const PING_SERVERS = [
+      {
+        url: 'http://pingomatic.com/ping/',
+        method: 'POST',
+        params: {
+          title: title,
+          blogurl: `${process.env.BASE_URL}/developers/${title}`,
+          rssurl: `${process.env.BASE_URL}/feed`,
+        },
+      },
+      {
+        url: 'http://rpc.pingomatic.com/',
+        method: 'GET',
+      },
+    ];
+    await sendPing(PING_SERVERS);
     return developer;
   } catch (error) {
     throw error;
@@ -407,6 +407,22 @@ export const savePlatform = async (formData: FormData) => {
         url_image: fileName,
       },
     });
+    const PING_SERVERS = [
+      {
+        url: 'http://pingomatic.com/ping/',
+        method: 'POST',
+        params: {
+          title: title,
+          blogurl: `${process.env.BASE_URL}/platforms/${title}`,
+          rssurl: `${process.env.BASE_URL}/feed`,
+        },
+      },
+      {
+        url: 'http://rpc.pingomatic.com/',
+        method: 'GET',
+      },
+    ];
+    await sendPing(PING_SERVERS);
     return platform;
   } catch (error) {
     throw error;
@@ -505,6 +521,22 @@ export const saveGame = async (formData: FormData) => {
         },
       },
     });
+    const PING_SERVERS = [
+      {
+        url: 'http://pingomatic.com/ping/',
+        method: 'POST',
+        params: {
+          title: title,
+          blogurl: `${process.env.BASE_URL}/games/${slug}`,
+          rssurl: `${process.env.BASE_URL}/feed`,
+        },
+      },
+      {
+        url: 'http://rpc.pingomatic.com/',
+        method: 'GET',
+      },
+    ];
+    await sendPing(PING_SERVERS);
     revalidatePath('/', 'layout');
     // return game;
   } catch (error) {
