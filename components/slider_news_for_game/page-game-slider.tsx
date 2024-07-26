@@ -6,7 +6,7 @@ const SliderNewsForGame = ({ news }: { news: any[] }) => {
     <CustomSlider
       items={news}
       nameHeadSlider="News for game"
-      url_article="games"
+      url_article="news"
     />
   ) : (
     <p>Loading...</p>
