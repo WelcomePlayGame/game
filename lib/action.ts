@@ -461,7 +461,11 @@ export const saveTag = async (formData: FormData) => {
 export const getAllGames = async () => {
   try {
     const client = await getClient();
-    const games = client.games.findMany();
+    const games = client.games.findMany({
+      orderBy: {
+        date: 'desc',
+      },
+    });
     return games;
   } catch (error) {
     throw error;
