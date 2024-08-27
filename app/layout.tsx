@@ -41,7 +41,7 @@ export default function RootLayout({
             content="ca-pub-8462086079240804"
           ></meta>
         </head>
-        <body className={orbitron.className}>{children}</body>
+        <body className={rubik.className}>{children}</body>
         <GoogleAdsense pId="8462086079240804" />
         <GooglePublisher />
         <GoogleAnalytics trackingId="G-5G4LKF8230" />
