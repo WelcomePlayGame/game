@@ -134,7 +134,6 @@ const Add = () => {
                 <SelectTag
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                     setTag(e.target.value);
-                    console.log(e.target.value);
                   }}
                 />
               </div>
@@ -142,7 +141,6 @@ const Add = () => {
                 <SelectPlatform
                   onChange={(e: React.ChangeEvent<HTMLSelectElement>) => {
                     setPlatform(e.target.value);
-                    console.log(e.target.value);
                   }}
                 />
               </div>
