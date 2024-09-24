@@ -664,3 +664,89 @@ export const getVideos = async () => {
     throw error;
   }
 };
+export const updateGame = async (formData: FormData, slug: string) => {
+  const title = formData.get('title') as string;
+  const content = formData.get('content') as string;
+  const seo_title = formData.get('seo_title') as string;
+  const seo_content = formData.get('seo_content') as string;
+  const image = formData.get('image') as File;
+  const video_url = formData.get('video_url') as string;
+  const developerId = Number(formData.get('developerId'));
+  const platformId = Number(formData.get('platformId'));
+  const tagId = Number(formData.get('tagId'));
+
+  if (image && !(image instanceof File)) {
+    throw new Error('Image must be an uploaded file');
+  }
+
+  let fileName: string | undefined;
+  if (image) {
+    const extension = image.name.split('.').pop();
+    fileName = `${slug}.${extension}`;
+    const bufferImage = await image.arrayBuffer();
+    await s3.putObject({
+      Bucket: 'games-for-you-img',
+      Key: fileName,
+      Body: Buffer.from(bufferImage),
+      ContentType: image.type,
+    });
+  }
+
+  try {
+    const client = await getClient();
+    const gameData: any = {
+      title,
+      content,
+      seo_title,
+      seo_content,
+      slug,
+      video_url,
+      developer: {
+        connect: {
+          id: developerId,
+        },
+      },
+      platform: {
+        connect: {
+          id: platformId,
+        },
+      },
+      tag: {
+        connect: {
+          id: tagId,
+        },
+      },
+    };
+
+    // Update the image URL only if a new image is uploaded
+    if (fileName) {
+      gameData.url_image = fileName;
+    }
+
+    const game = await client.games.update({
+      where: { slug },
+      data: gameData,
+    });
+
+    const PING_SERVERS = [
+      {
+        url: 'http://pingomatic.com/ping/',
+        method: 'POST',
+        params: {
+          title: title,
+          blogurl: `${process.env.BASE_URL}/games/${slug}`,
+          rssurl: `${process.env.BASE_URL}/feed`,
+        },
+      },
+      {
+        url: 'http://rpc.pingomatic.com/',
+        method: 'GET',
+      },
+    ];
+    await sendPing(PING_SERVERS);
+    revalidatePath('/', 'layout');
+    // return game;
+  } catch (error) {
+    throw error;
+  }
+};
