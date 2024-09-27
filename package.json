@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate && prisma db push --accept-data-loss"
+    "postinstall": "prisma generate && prisma db push --accept-data-loss",
+    "push_vercel": "git add . && git commit -m \"$(npm pkg get version | tr -d '\"')_v2\" && git push origin master -f"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.564.0",
