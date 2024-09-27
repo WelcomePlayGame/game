@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { NextResponse } from 'next/server';
 import { getAllGames as get } from '@/lib/action';
-export const handler = (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'GET') {
-    get();
-  }
-};
+
+export async function GET(req: Request) {
+  const games = await get();
+  return NextResponse.json(games);
+}
