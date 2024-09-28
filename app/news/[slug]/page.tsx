@@ -3,7 +3,7 @@ import PageNave from '@/components/head/page-nav-header';
 import Footer from '@/components/footer/page-footer';
 import { findArticleBySlug } from '@/lib/action';
 import Image from 'next/image';
-import classes from '@/components/games/page-game.module.css';
+import classes from '@/com ponents/games/page-game.module.css';
 import Link from 'next/link';
 import Head from 'next/head';
 import SliderArticle from '@/components/slider_for_article/page-slider-article';
@@ -105,7 +105,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
           </div>
         </div>
         <div
-          className={`font-normal  pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[25%] lg:pr-[25%] break-words lg:text-[18px] leading-relaxed`}
+          className={`${classes.content_p} font-normal  pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[25%] lg:pr-[25%] break-words lg:text-[18px] leading-relaxed`}
         >
           <div
             dangerouslySetInnerHTML={createMarkup(article?.content ?? '')}
