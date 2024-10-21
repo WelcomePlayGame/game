@@ -17,25 +17,22 @@ export async function GET() {
     pubDate: new Date().toUTCString(),
   });
 
-  articles
-    .reverse()
-    .slice(0, MAX_POSTS)
-    .map((article) => {
-      feed.item({
-        title: article.title,
-        guid: `${process.env.BASE_URL}/news/${article.slug}`,
-        url: `${process.env.BASE_URL}/news/${article.slug}`,
-        date: article.date,
-        description: article.description,
-        author: 'GameForYou',
-        categories: [article.category],
-        enclosure: {
-          url: `${process.env.URL_AWS}${article.url_image}`,
-          type: 'image/*',
-          length: '51200',
-        },
-      });
+  articles.slice(0, MAX_POSTS).map((article) => {
+    feed.item({
+      title: article.title,
+      guid: `${process.env.BASE_URL}/news/${article.slug}`,
+      url: `${process.env.BASE_URL}/news/${article.slug}`,
+      date: article.date,
+      description: article.description,
+      author: 'GameForYou',
+      categories: [article.category],
+      enclosure: {
+        url: `${process.env.URL_AWS}${article.url_image}`,
+        type: 'image/*',
+        length: '51200',
+      },
     });
+  });
 
   return new Response(feed.xml({ indent: true }), {
     headers: {
