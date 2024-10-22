@@ -38,6 +38,9 @@ const Footer = () => {
               youtube
             </Link>
           </span>
+          <span>
+            <Link href="https://www.tiktok.com/@gameforyouonline">tictok</Link>
+          </span>
         </div>
       </div>
       <div></div>
