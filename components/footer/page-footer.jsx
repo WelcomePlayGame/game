@@ -33,6 +33,11 @@ const Footer = () => {
               reddit
             </Link>
           </span>
+          <span>
+            <Link href="https://www.youtube.com/@GameForYouOnline">
+              youtube
+            </Link>
+          </span>
         </div>
       </div>
       <div></div>
