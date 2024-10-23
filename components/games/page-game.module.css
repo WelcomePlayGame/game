@@ -36,7 +36,8 @@
   margin: 10px;
 }
 .content_img a {
-  background: orange;
+  background: rgba(255, 165, 0, 0.5)
+
   padding: 1px 20px;
   width: 300px;
   border-radius: 7px;
