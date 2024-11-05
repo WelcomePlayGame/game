@@ -1,7 +1,6 @@
 import NextAuth, { NextAuthOptions, User } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GoogleProvider from 'next-auth/providers/google';
-import { JWT } from 'next-auth/jwt';
 import { userByEmail } from '@/lib/action';
 
 interface CustomUser extends User {

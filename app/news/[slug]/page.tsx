@@ -107,7 +107,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
         <div
           className={`${classes.content_p} font-normal  pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[25%] lg:pr-[25%] break-words lg:text-[18px] leading-relaxed`}
         >
-          <div
+          <article
             dangerouslySetInnerHTML={createMarkup(article?.content ?? '')}
             className={`${classes.content_img}`}
           />

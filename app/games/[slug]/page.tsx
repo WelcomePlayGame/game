@@ -91,7 +91,7 @@ const Game = async ({ params }: { params: { slug: string } }) => {
 
               <TabPanels>
                 <TabPanel className={` min-h-[500px] italic`}>
-                  <div
+                  <article
                     dangerouslySetInnerHTML={createMarkup(game?.content)}
                     className={`${classes.content_img}`}
                   />

@@ -15,7 +15,7 @@ const PageNave = () => {
         <BurgerMenu />
       </div>
       <div className={`hidden md:block`}>
-        <ul
+        <ol
           className={`${classes.ul_container} uppercase flex flex-row space-x-4`}
         >
           <li>
@@ -62,7 +62,7 @@ const PageNave = () => {
               developers
             </Link>
           </li>
-        </ul>
+        </ol>
       </div>
     </main>
   );

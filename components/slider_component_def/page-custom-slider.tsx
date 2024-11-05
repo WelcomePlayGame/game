@@ -69,7 +69,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
   };
   const createMarkup = (html: any) => ({ __html: html });
   return (
-    <div className={styles.sliderContainer}>
+    <article className={styles.sliderContainer}>
       <h2 className={styles.heading}>{nameHeadSlider}</h2>
       <Slider {...settings}>
         {items.map((item: any, index: number) => (
@@ -106,7 +106,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
           </div>
         ))}
       </Slider>
-    </div>
+    </article>
   );
 };
 

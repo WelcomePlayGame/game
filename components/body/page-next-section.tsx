@@ -1,7 +1,7 @@
 import classes from './page-our-story.module.css';
 const NextSection = () => {
   return (
-    <main
+    <section
       className={`${classes.next_section_container} flex flex-col items-center  lg:items-end h-[600px] w-[100%] relative mt-[30px] lg:mt-[50px]`}
     >
       <div className={` lg:pr-[5%] lg:pt-[5%]`}>
@@ -16,7 +16,7 @@ const NextSection = () => {
           </span>
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 export default NextSection;

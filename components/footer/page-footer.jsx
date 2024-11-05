@@ -11,40 +11,38 @@ const Footer = () => {
         >
           our social
         </span>
-        <div
+        <ol
           className={`flex flex-col items-start lg:flex-row lg:justify-between uppercase text-[1.1rem] lg:space-x-3`}
         >
-          <span>
+          <li>
             <Link href="https://www.instagram.com/optimisticpetrovich/">
               instargam
             </Link>
-          </span>
-          <span>
+          </li>
+          <li>
             <Link
               href={`https://www.facebook.com/GameVadymPetrovich/`}
               target="_blank"
             >
               facebook
             </Link>
-          </span>
-          <span>telegram</span>
-          <span>
+          </li>
+          <li>telegram</li>
+          <li>
             <Link href="https://www.reddit.com/user/GameForYouOnlineInfo/">
               reddit
             </Link>
-          </span>
-          <span>
+          </li>
+          <li>
             <Link href="https://www.youtube.com/@GameForYouOnline">
               youtube
             </Link>
-          </span>
-          <span>
+          </li>
+          <li>
             <Link href="https://www.tiktok.com/@gameforyouonline">tictok</Link>
-          </span>
-        </div>
+          </li>
+        </ol>
       </div>
-      <div></div>
-      <div></div>
     </footer>
   );
 };

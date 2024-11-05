@@ -3,7 +3,7 @@ import classes from './page-our-story.module.css';
 import Image from 'next/image';
 const OurStory = () => {
   return (
-    <main
+    <section
       className={`${classes.our_container} flex flex-col items-center lg:flex lg:flex-row lg:justify-center mt-[50px] lg:space-x-[10rem]`}
     >
       <div className={`${classes.our_story_left} flex flex-col`}>
@@ -33,7 +33,7 @@ const OurStory = () => {
           <Image src={'/images/image/2.webp'} fill alt="our story game two" />
         </div>
       </div>
-    </main>
+    </section>
   );
 };
 export default OurStory;
