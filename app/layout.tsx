@@ -36,12 +36,6 @@ export default function RootLayout({
     <SessionWrapper>
       <html lang="en">
         <head>
-          <script
-            charSet="UTF-8"
-            src="//web.webpushs.com/js/push/7fe3159fa95403fee198e9079ce98b25_1.js"
-            async
-          ></script>
-
           <meta
             name="google-adsense-account"
             content="ca-pub-8462086079240804"
