@@ -69,7 +69,7 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
   };
   const createMarkup = (html: any) => ({ __html: html });
   return (
-    <article className={styles.sliderContainer}>
+    <section className={styles.sliderContainer}>
       <h2 className={styles.heading}>{nameHeadSlider}</h2>
       <Slider {...settings}>
         {items.map((item: any, index: number) => (
@@ -95,18 +95,18 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
                 </Link>
               )}
             </div>
-            <div className={styles.caption}>
+            <section className={styles.caption}>
               <h3>
                 {item.title.length > 30
                   ? `${item.title.slice(0, 25)} ...`
                   : item.title}
               </h3>
               {item.date && <p>{item.date.toLocaleDateString('en-US')}</p>}
-            </div>
+            </section>
           </div>
         ))}
       </Slider>
-    </article>
+    </section>
   );
 };
 

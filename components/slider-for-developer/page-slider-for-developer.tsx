@@ -22,7 +22,13 @@ const SliderDeveloper = () => {
       url_article="developers"
     />
   ) : (
-    <p>Loading...</p>
+    <div>
+      <img
+        src={`/animation.gif`}
+        alt="animation"
+        style={{ display: 'block', margin: 'auto' }}
+      />
+    </div>
   );
 };
 
