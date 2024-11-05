@@ -1,13 +1,13 @@
 import classes from '@/components/games/page-game.module.css';
 const MainText = () => {
   return (
-    <main
+    <section
       className={`${classes.content_img} flex flex-col items-center p-[50px]`}
     >
       <div className={`w-[100%] lg:w-[900px] text-[1.1rem]`}>
-        <h3 className={`text-center text-[1.5rem] mb-[30px]`}>
+        <h2 className={`text-center text-[1.5rem] mb-[30px]`}>
           Welcome to GAMEFORYOU - Your Ultimate Gaming Hub!
-        </h3>
+        </h2>
         <p>
           Dive into the thrilling world of gaming with GAMEFORYOU, where passion
           meets the latest in gaming news, reviews, and updates. Whether
@@ -63,7 +63,7 @@ const MainText = () => {
           adventure starts here!
         </p>
       </div>
-    </main>
+    </section>
   );
 };
 export default MainText;

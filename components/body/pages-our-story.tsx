@@ -20,12 +20,12 @@ const OurStory = () => {
       </div>
       <div className={`${classes.our_story_right}`}>
         <div className={`mb-[30px] text-[1.3rem] break-words`}>
-          <h2
+          <h3
             className={`text-[1.3rem] break-words w-[300px] lg:w-[600px] text-center`}
           >
             Where Every Click Leads to Adventure - Dive into Your Next Great
             Game!
-          </h2>
+          </h3>
         </div>
         <div
           className={`w-[300px] h-[150px] lg:w-[600px] lg:h-[300px] relative`}

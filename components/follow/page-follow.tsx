@@ -5,11 +5,11 @@ const Follow = () => {
       <span className={`uppercase text-[1rem] lg:text-[1.5rem]`}>
         follow us
       </span>
-      <h3
+      <h5
         className={`${classes.follow_h5} uppercase text-[2.5rem] lg:text-[5rem]`}
       >
         @ gameforyou
-      </h3>
+      </h5>
     </section>
   );
 };
