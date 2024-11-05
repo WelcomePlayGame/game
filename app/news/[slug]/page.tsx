@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 import SliderArticle from '@/components/slider_for_article/page-slider-article';
 import SvgTag from '@/components/svg_tag_img/page-svg-tag-img';
+
 export const generateMetadata = async ({ params }: any) => {
   const article = await findArticleBySlug(params.slug);
   return {
@@ -78,56 +79,46 @@ const Article = async ({ params }: { params: { slug: string } }) => {
       </Head>
       <PageHeader />
       <PageNave />
-      <section className={`flex flex-col  mt-[70px]`}>
-        <div
-          className={`relative object-contain w-[300px] h-[150px] block mx-auto md:w-[600px] md:h-[300px]`}
-        >
+      <section className="flex flex-col mt-[70px]">
+        <div className="relative object-contain w-[300px] h-[150px] block mx-auto md:w-[600px] md:h-[300px]">
           {article?.url_image && (
             <Image
               src={`${process.env.URL_AWS}${article.url_image}`}
               fill
               alt={article.title ?? ''}
-              className={`rounded-[5px]`}
+              className="rounded-[5px]"
             />
           )}
         </div>
-        <div
-          className={`border-b w-[300px] lg:w-[700px] block mx-auto pb-[15px]`}
-        >
-          <h1 className={` font-bold text-center mt-[30px]`}>
-            {article?.title}
-          </h1>
-          <div className="flex justify-center space-x-4 mt-[20px] bg-[orange] p-[5px] w-[] lg:w-[30%] rounded items-center">
-            <div className={`w-[32px] h-[32px] fill-white`}>
+        <div className="border-b w-[300px] lg:w-[700px] block mx-auto pb-[15px]">
+          <h1 className="font-bold text-center mt-[30px]">{article?.title}</h1>
+          <div className="flex justify-center space-x-4 mt-[20px] bg-[orange] p-[5px] lg:w-[30%] rounded items-center">
+            <div className="w-[32px] h-[32px] fill-white">
               <SvgTag />
             </div>
             <span>{article?.category.title}</span>
           </div>
         </div>
         <div
-          className={`${classes.content_p} font-normal  pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[25%] lg:pr-[25%] break-words lg:text-[18px] leading-relaxed`}
+          className={`${classes.content_p} font-normal pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[25%] lg:pr-[25%] break-words lg:text-[18px] leading-relaxed`}
         >
-          <article
+          <section
             dangerouslySetInnerHTML={createMarkup(article?.content ?? '')}
-            className={`${classes.content_img}`}
+            className={classes.content_img}
           />
         </div>
-        <div className={`flex flex-col items-center `}>
+        <div className="flex flex-col items-center">
           {article?.game && (
-            <div
-              className={`flex flex-col  lg:flex-row lg:justify-center mt-[70px] lg:space-x-[10px] bg-[#000] bg-opacity-50 p-[10px] lg:p-[50px] lg:w-[50%] rounded-[10px]`}
-            >
-              <div
-                className={`w-[300px] h-[150px]  lg:w-[400px] lg:h-[200px] relative`}
-              >
+            <div className="flex flex-col lg:flex-row lg:justify-center mt-[70px] lg:space-x-[10px] bg-[#000] bg-opacity-50 p-[10px] lg:p-[50px] lg:w-[50%] rounded-[10px]">
+              <div className="w-[300px] h-[150px] lg:w-[400px] lg:h-[200px] relative">
                 <Image
                   src={`${process.env.URL_AWS}${article.game.url_image}`}
                   fill
                   alt={article.game.title ?? ''}
-                  className={`rounded-[20px]`}
+                  className="rounded-[20px]"
                 />
               </div>
-              <div className={`flex flex-col`}>
+              <div className="flex flex-col">
                 <h4>
                   <Link href={`/games/${article.game.slug}`}>
                     {article.game.title}
@@ -141,8 +132,8 @@ const Article = async ({ params }: { params: { slug: string } }) => {
                 </span>
                 <span>Genre: {article.game.tag.title}</span>
               </div>
-              <div className={`border-l-[1px]`}>
-                <span className={'p-[30px]'}>Rating</span>
+              <div className="border-l-[1px]">
+                <span className="p-[30px]">Rating</span>
               </div>
             </div>
           )}
