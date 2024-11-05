@@ -9,7 +9,13 @@ const SliderNewsForGame = ({ news }: { news: any[] }) => {
       url_article="news"
     />
   ) : (
-    <p>Loading...</p>
+    <div>
+      <img
+        src={`/animation.gif`}
+        alt="animation"
+        style={{ display: 'block', margin: 'auto' }}
+      />
+    </div>
   );
 };
 
