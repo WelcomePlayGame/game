@@ -33,7 +33,11 @@ export const generateMetadata = async ({ params }: any) => {
 const Game = async ({ params }: { params: { slug: string } }) => {
   const game = await get(params.slug);
   if (!game) {
-    return <div>Loading...</div>;
+    return (
+      <div style={{ display: 'block', margin: 'auto' }}>
+        <img src={`/animation.gif`} alt="animation" />
+      </div>
+    );
   }
   const createMarkup = (html: any) => ({ __html: html });
 
