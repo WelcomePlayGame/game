@@ -7,7 +7,7 @@ const PageNave = () => {
   const currentPath = usePathname();
 
   return (
-    <main
+    <section
       className={`${classes.nav_container} flex justify-evenly  text-[#fff] mt-[40px]`}
     >
       <div className={`uppercase text-[1.3rem]`}>gameforyou</div>
@@ -64,7 +64,7 @@ const PageNave = () => {
           </li>
         </ol>
       </div>
-    </main>
+    </section>
   );
 };
 export default PageNave;

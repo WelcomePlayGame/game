@@ -4,7 +4,7 @@ import Link from 'next/link';
 const PageHeader = () => {
   const { data: session, status }: any = useSession();
   return (
-    <main
+    <section
       className={`flex justify-around  border-b-[1px] text-[#fff] h-[50px] items-center`}
     >
       <div className={`flex justify-between`}>
@@ -51,7 +51,7 @@ c-33.597-17.53-66.764-34.821-100.138-52.237V276.399z"
       </div>
 
       <div>Search</div>
-    </main>
+    </section>
   );
 };
 

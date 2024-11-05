@@ -10,7 +10,7 @@ import MainText from '@/components/main_text/page-main-text';
 
 export default function Home() {
   return (
-    <main className={``}>
+    <section className={``}>
       <PageHeader />
       <PageNave />
       <PageStage />
@@ -20,6 +20,6 @@ export default function Home() {
       <NextSection />
       <Follow />
       <Footer />
-    </main>
+    </section>
   );
 }

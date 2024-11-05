@@ -1,7 +1,7 @@
 import classes from './page-header.module.css';
 const PageStage = () => {
   return (
-    <main
+    <section
       className={`${classes.stage_container} flex flex-col items-center mt-[30px] h-[200px] lg:mt-[70px] lg:h-[600px] w-[100%]`}
     >
       <div>
@@ -18,7 +18,7 @@ const PageStage = () => {
           Unlock Your Next Adventure: Game Portal to Infinite Possibilities!
         </h1>
       </div>
-    </main>
+    </section>
   );
 };
 export default PageStage;
