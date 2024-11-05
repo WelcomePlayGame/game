@@ -17,7 +17,7 @@ import {
   Tab,
   TabList,
 } from '@chakra-ui/react';
-import PageGrid from '@/components/news_slug/page-grid-news';
+
 import Link from 'next/link';
 import SliderNewsForGame from '@/components/slider_news_for_game/page-game-slider';
 import Head from 'next/head';
@@ -34,8 +34,12 @@ const Game = async ({ params }: { params: { slug: string } }) => {
   const game = await get(params.slug);
   if (!game) {
     return (
-      <div style={{ display: 'block', margin: 'auto' }}>
-        <img src={`/animation.gif`} alt="animation" />
+      <div>
+        <img
+          src={`/animation.gif`}
+          alt="animation"
+          style={{ display: 'block', margin: 'auto' }}
+        />
       </div>
     );
   }
@@ -145,7 +149,7 @@ const Game = async ({ params }: { params: { slug: string } }) => {
 
               <TabPanels>
                 <TabPanel className="min-h-[500px] italic">
-                  <article
+                  <section
                     dangerouslySetInnerHTML={createMarkup(game?.content)}
                     className={classes.content_img}
                   />

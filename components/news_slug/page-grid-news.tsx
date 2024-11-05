@@ -46,8 +46,12 @@ const PageGrid = ({ initialArticles, initialPage, totalArticles }: any) => {
 
   if (loading) {
     return (
-      <div style={{ display: 'block', margin: 'auto' }}>
-        <img src={`/animation.gif`} alt="animation" />
+      <div>
+        <img
+          src={`/animation.gif`}
+          alt="animation"
+          style={{ display: 'block', margin: 'auto' }}
+        />
       </div>
     );
   }
