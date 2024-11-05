@@ -20,7 +20,7 @@ const Developer = async ({ params }: { params: { slug: string } }) => {
 
   const createMarkup = (html: any) => ({ __html: html });
   return (
-    <main>
+    <>
       <PageHeader />
       <PageNave />
       <section className={`flex flex-col  mt-[70px]`}>
@@ -46,7 +46,7 @@ const Developer = async ({ params }: { params: { slug: string } }) => {
         <div
           className={`font-normal  pl-[30px] pr-[30px] lg:pt-[70px] lg:pl-[250px] lg:pr-[250px]`}
         >
-          <div
+          <article
             dangerouslySetInnerHTML={createMarkup(developer?.content)}
             className={`${classes.content_img}`}
           />
@@ -54,7 +54,7 @@ const Developer = async ({ params }: { params: { slug: string } }) => {
       </section>
       <SliderGame />
       <Footer />
-    </main>
+    </>
   );
 };
 
