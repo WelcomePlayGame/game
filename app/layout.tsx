@@ -49,7 +49,7 @@ export default function RootLayout({
         </head>
         <body className={rubik.className}>{children}</body>
         <GoogleAdsense pId="8462086079240804" />
-        <GooglePublisher />
+        {/* <GooglePublisher /> */}
         <GoogleAnalytics trackingId="G-5G4LKF8230" />
       </html>
     </SessionWrapper>
