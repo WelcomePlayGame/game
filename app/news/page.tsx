@@ -32,12 +32,12 @@ const ArticleFetch = async () => {
 
 const Articles = async () => {
   return (
-    <main>
+    <section>
       <PageHeader />
       <PageNave />
       <ArticleFetch />
       <Footer />
-    </main>
+    </section>
   );
 };
 
