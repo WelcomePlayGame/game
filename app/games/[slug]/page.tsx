@@ -27,6 +27,9 @@ export const generateMetadata = async ({ params }: any) => {
   return {
     title: game?.seo_title,
     description: game?.seo_content,
+    alternates: {
+      canonical: `${process.env.BASE_URL}/games/${params.slug}`,
+    },
   };
 };
 
@@ -73,7 +76,7 @@ const Game = async ({ params }: { params: { slug: string } }) => {
   };
 
   return (
-    <main>
+    <section>
       <Head>
         {/* Schema.org structured data */}
         <script
@@ -173,7 +176,7 @@ const Game = async ({ params }: { params: { slug: string } }) => {
         </div>
       </section>
       <Footer />
-    </main>
+    </section>
   );
 };
 

@@ -14,6 +14,9 @@ export const generateMetadata = async ({ params }: any) => {
   return {
     title: article?.seo_title ?? '',
     description: article?.seo_content ?? '',
+    alternates: {
+      canonical: `${process.env.BASE_URL}/news/${params.slug}`,
+    },
   };
 };
 
@@ -45,7 +48,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
   };
 
   return (
-    <main>
+    <section>
       <Head>
         {/* Schema.org structured data */}
         <script
@@ -141,7 +144,7 @@ const Article = async ({ params }: { params: { slug: string } }) => {
         <SliderArticle />
       </section>
       <Footer />
-    </main>
+    </section>
   );
 };
 
