@@ -43,6 +43,36 @@ const nextConfig = {
         destination: '/games/standoff-2',
         permanent: true,
       },
+      {
+        source: '/en/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/en/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ru/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/pl/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ua/:slug*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/spisok-kategorij',
+        destination: '/news',
+        permanent: true,
+      },
     ];
   },
 };
