@@ -6,7 +6,7 @@ import Footer from '@/components/footer/page-footer';
 const NotFound = () => {
   return (
     <>
-      <main className={`flex-1`}>
+      <section className={`flex-1`}>
         <PageHeader />
         <PageNave />
         <div
@@ -14,7 +14,7 @@ const NotFound = () => {
         >
           <Image src={'/images/image/404.png'} fill alt="404 error" />
         </div>
-      </main>
+      </section>
       <Footer />
     </>
   );
