@@ -91,7 +91,7 @@ const Game = async ({ params }: { params: { slug: string } }) => {
         />
         <meta
           property="og:url"
-          content={`https://yourwebsite.com/games/${params.slug}`}
+          content={`${process.env.URL_AWS}/games/${params.slug}`}
         />
         <meta property="og:site_name" content="GameForYouOnline" />
 

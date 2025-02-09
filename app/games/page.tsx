@@ -16,12 +16,12 @@ const GamesFetch = async () => {
 };
 const Games = () => {
   return (
-    <main>
+    <section>
       <PageHeader />
       <PageNave />
       <GamesFetch />
       <Footer />
-    </main>
+    </section>
   );
 };
 export default Games;
