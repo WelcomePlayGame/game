@@ -8,13 +8,13 @@ const DevelopersGrid = ({ developers }: any) => {
       >
         <h1>Game Developers Hub</h1>
       </div>
-      <main className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
+      <section className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
         {developers.map((article: any, index: number) => (
           <div key={index}>
             <DevelopersItem {...article} />
           </div>
         ))}
-      </main>
+      </section>
     </div>
   );
 };

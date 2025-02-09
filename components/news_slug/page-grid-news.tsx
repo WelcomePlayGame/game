@@ -63,13 +63,13 @@ const PageGrid = ({ initialArticles, initialPage, totalArticles }: any) => {
       >
         <h1>Latest Gaming News: Updates, Releases, and New Announcements</h1>
       </div>
-      <main className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
+      <section className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
         {articles.map((article: any, index: number) => (
           <div key={index}>
             <PageItem {...article} />
           </div>
         ))}
-      </main>
+      </section>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}

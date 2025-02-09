@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const DevelopersItem = ({ title, url_image }: any) => {
   return (
-    <main className={`flex flex-col items-center`}>
+    <section className={`flex flex-col items-center`}>
       <div
         className={`relative w-[300px] h-[200px] lg:w-[600px] lg:h-[300px] object-contain`}
       >
@@ -15,7 +15,7 @@ const DevelopersItem = ({ title, url_image }: any) => {
       >
         <Link href={`/developers/${title}`}>Read ... </Link>
       </span>
-    </main>
+    </section>
   );
 };
 export default DevelopersItem;

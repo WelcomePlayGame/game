@@ -7,13 +7,13 @@ const GamesGrid = ({ games }: any) => {
       >
         <h1>Top Games to Play Now</h1>
       </div>
-      <main className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
+      <section className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
         {games.map((developer: any, index: number) => (
           <div key={index}>
             <GamesItems {...developer} />
           </div>
         ))}
-      </main>
+      </section>
     </div>
   );
 };

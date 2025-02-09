@@ -15,7 +15,7 @@ const SelectDeveloper = ({ onChange }: any) => {
     fetch();
   }, []);
   return (
-    <main>
+    <section>
       <select onChange={onChange} multiple>
         {developers.map((developer) => (
           <option key={developer.id} value={developer.id}>
@@ -23,7 +23,7 @@ const SelectDeveloper = ({ onChange }: any) => {
           </option>
         ))}
       </select>
-    </main>
+    </section>
   );
 };
 export default SelectDeveloper;

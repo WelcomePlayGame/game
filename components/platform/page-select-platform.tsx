@@ -14,7 +14,7 @@ const SelectPlatform = ({ onChange }: any) => {
     fetch();
   }, []);
   return (
-    <main>
+    <section>
       <select onChange={onChange} multiple>
         {platforms.map((platform) => (
           <option key={platform.id} value={platform.id}>
@@ -22,7 +22,7 @@ const SelectPlatform = ({ onChange }: any) => {
           </option>
         ))}
       </select>
-    </main>
+    </section>
   );
 };
 export default SelectPlatform;

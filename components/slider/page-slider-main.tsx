@@ -13,7 +13,7 @@ interface DataSlide {
 }
 const SlideMain: React.FC<DataSlide> = ({ data }) => {
   return (
-    <main>
+    <section>
       <Swiper
         navigation
         pagination={{ type: 'bullets', clickable: true }}
@@ -21,6 +21,6 @@ const SlideMain: React.FC<DataSlide> = ({ data }) => {
         loop={true}
         modules={[Autoplay, Navigation, Pagination]}
       ></Swiper>
-    </main>
+    </section>
   );
 };

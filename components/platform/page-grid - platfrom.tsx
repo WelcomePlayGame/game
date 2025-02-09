@@ -8,13 +8,13 @@ const PlatformsGrid = ({ platforms }: any) => {
       >
         <h1>Gaming Platforms Overview</h1>
       </div>
-      <main className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
+      <section className="flex flex-col flex-wrap mt-[30px] lg:mt-[90px] lg:flex-row lg:justify-evenly">
         {platforms.map((platform: any, index: number) => (
           <div key={index}>
             <PlatformItem {...platform} />
           </div>
         ))}
-      </main>
+      </section>
     </div>
   );
 };

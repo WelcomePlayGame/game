@@ -18,7 +18,7 @@ const PageItem = ({
   category_title: string;
 }) => {
   return (
-    <main>
+    <section>
       <div className={`flex flex-col items-center`}>
         <div
           className={`relative w-[300px] h-[200px] lg:w-[600px] lg:h-[300px] object-contain`}
@@ -39,7 +39,7 @@ const PageItem = ({
           <Link href={`/news/${slug}`}>Read news...</Link>
         </span>
       </div>
-    </main>
+    </section>
   );
 };
 export default PageItem;

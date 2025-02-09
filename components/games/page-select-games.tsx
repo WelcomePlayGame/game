@@ -16,7 +16,7 @@ const SelectGames = ({ onChange }: any) => {
     fetch();
   }, []);
   return (
-    <main>
+    <section>
       <select onChange={onChange} multiple>
         {games.map((game) => (
           <option key={game.id} value={game.id}>
@@ -24,7 +24,7 @@ const SelectGames = ({ onChange }: any) => {
           </option>
         ))}
       </select>
-    </main>
+    </section>
   );
 };
 export default SelectGames;
