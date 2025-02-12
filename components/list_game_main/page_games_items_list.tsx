@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 const GamesItemsList = ({ id, title, slug, url_image }: any) => {
   return (
-    <section className={`flex flex-col items-center`}>
+    <section className={`flex flex-col items-center p-[10px]`}>
       <div
         className={`relative w-[200px] h-[100px] lg:w-[300px] lg:h-[150px] object-contain rounded-[5px]`}
       >
