@@ -66,6 +66,15 @@ const CustomSlider: React.FC<CustomSliderProps> = ({
     prevArrow: <CustomPrevArrow />,
     nextArrow: <CustomNextArrow />,
     className: 'custom-slider',
+    responsive: [
+      {
+        breakpoint: 768, // мобильные устройства
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   const createMarkup = (html: any) => ({ __html: html });
   return (
