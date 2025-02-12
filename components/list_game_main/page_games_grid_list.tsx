@@ -1,5 +1,5 @@
 import GamesItemsList from './page_games_items_list';
-
+import classes from './page_list_game.module.css';
 const GamesGridList = ({ games }: any) => {
   return (
     <div>
@@ -8,7 +8,9 @@ const GamesGridList = ({ games }: any) => {
       >
         <h2>Favorite Games</h2>
       </div>
-      <section className="flex flex-col flex-wrap mt-[30px] lg:mt-[20px] lg:flex-row lg:justify-evenly">
+      <section
+        className={`${classes.container_list} flex flex-col flex-wrap mt-[30px] lg:mt-[40px] lg:flex-row lg:justify-evenly`}
+      >
         {games.map((game: any, index: number) => (
           <div key={index}>
             <GamesItemsList {...game} />
