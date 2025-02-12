@@ -4,7 +4,7 @@ const GamesItemsList = ({ id, title, slug, url_image }: any) => {
   return (
     <section className={`flex flex-col items-center`}>
       <div
-        className={`relative w-[100px] h-[100px] lg:w-[200px] lg:h-[100px] object-contain rounded-[5px]`}
+        className={`relative w-[200px] h-[100px] lg:w-[300px] lg:h-[150px] object-contain rounded-[5px]`}
       >
         <Image src={`${process.env.URL_AWS}${url_image}`} fill alt={title} />
       </div>
